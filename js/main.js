@@ -1,14 +1,41 @@
-var buttonList = document.getElementsByTagName('li')
-var graphList = document.getElementsByClassName('flourish-embed')
+$(document).ready(function(){
+    $("#occasion").click(function(){
+        $(".button:first").addClass("is-active");
+        $(".button:nth-child(2)").removeClass("is-active");
+        $(".button:last").removeClass("is-active");
 
-document.getElementsByClassName('button').addEventListener("click", makeActive)
+        $(".occasion").removeClass("hide");
+        $(".relationship").addClass("hide");
+        $(".gender").addClass("hide");
 
-function makeActive() {
-  if li[i].classList.contains('is-active') {
-    document.getElementsByClassName('graph').style.display = block;
-  }
-}
+    });
 
+    $("#relationship").click(function(){
+        $(".button:nth-child(2)").addClass("is-active");
+        $(".button:first").removeClass("is-active");
+        $(".button:last").removeClass("is-active");
+
+        $(".relationship").removeClass("hide");
+        $(".occasion").addClass("hide");
+        $(".gender").addClass("hide");
+    });
+
+    $("#gender").click(function(){
+        $(".button:last").addClass("is-active");
+        $(".button:first").removeClass("is-active");
+        $(".button:nth-child(2)").removeClass("is-active");
+
+        $(".gender").removeClass("hide");
+        $(".occasion").addClass("hide");
+        $(".relationship").addClass("hide");
+
+    });
+});
+
+var scroll = scroller()
+    .container(d3.select('#graphic'));
+  scroll(d3.selectAll('.step'));
+  scroll.update(update);
 
 
 //
